@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>What makes a person an artist?</h1>
+
+
+<div>
+    <figure>
+      <img src="{{ url_for('static', filename='Amy_Winehouse.jpg') }}" alt="Amy Winehouse">
+      <figcaption>Amy Winehouse: How did a British artist capture Jazz/Blues in
+        such a soulful manner?</figcaption>
+    </figure>
+  
+    <figure>
+      <img src="{{ url_for('static', filename='Aretha_Franklin.jpg') }}" alt="Aretha Franklin">
+      <figcaption>Aretha Franklin: The Queen of Soul.</figcaption>
+    </figure>
+  
+    <figure>
+      <img src="{{ url_for('static', filename='Led_Zeppelin.jpg') }}" alt="Led Zeppelin">
+      <figcaption>They were masters of hard rock, heavy metal
+        and very creative.</figcaption>
+    </figure>
+  
+    <figure>
+      <img src="{{ url_for('static', filename='Pink_Floyd.jpg') }}" alt="Pink Floyd">
+      <figcaption>Pink Floyd: Their mixture of Psychedelic Rock and Blues
+        was iconic.</figcaption>
+    </figure>
+  
+    <figure>
+      <img src="{{ url_for('static', filename='Ray_Charles.jpg') }}" alt="Ray Charles">
+      <figcaption>Ray Charles: My favorite Blues artist of all time.</figcaption>
+    </figure>
+  </div>
+  
+
+
+{% endblock %}
