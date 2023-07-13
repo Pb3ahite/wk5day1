@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Pokemon Search</h1>
+    <form class="col-4 border p-4" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.search_term(class='form-control', placeholder='Search') }}
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+
+    {% if pokemon %}
+    <div class="mt-4 p-4" style="background-color: #f5f5f5;">
+        <ul>
+            <li><strong>Name:</strong> {{ pokemon.name }}</li>
+            <li><strong>ID:</strong> {{ pokemon.id }}</li>
+            <li><strong>HP:</strong> {{ pokemon.hp }}</li>
+            <li><strong>Attack:</strong> {{ pokemon.attack }}</li>
+            <li><strong>Defense:</strong> {{ pokemon.defense }}</li>
+        </ul>
+        <img src="{{pokemon.img_url}}" alt="image">
+    </div>
+    {% endif %}
+</div>
+
+<div class="container">
+    <div class="mt-4">
+        <a href="#" class="btn btn-primary">Home</a>
+        <a href="/search" class="btn btn-primary">Search</a>
+        <div class="dropdown d-inline">
+          
+
+{% endblock %}
