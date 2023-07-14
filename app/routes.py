@@ -4,6 +4,8 @@ from .forms import SignUpForm
 from .models import User, db
 import requests as r
 from .forms import SearchForm
+from flask import Flask
+
 
 
 
@@ -49,11 +51,27 @@ def search():
 
             
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login_page():
-
+    if request.method == 'POST':
+       
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+ 
+        if username == 'admin' and password == 'password':
+           
+            return 'Login successful!'
+        else:
+            
+            return 'Invalid username or password!'
+    
+    
     return render_template('login.html')
 
+
+if __name__ == '__main__':
+    app.run()
 
 @app.route('/signup', methods=["GET", "POST"])
 def signup_page():
@@ -76,8 +94,22 @@ def signup_page():
 
     return render_template('signup.html', form = form)
 
-@app.route('/home_page', methods=["GET", "POST"])
-def home_page():
+
+
+@app.route('/Home', methods=['GET', 'POST'])
+def index():
+   
 
     
-    return render_template('home.html')
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run()
+
+@app.route('/page1')
+def page1():
+    return render_template('page1.html')
+
+@app.route('/page2')
+def page2():
+    return render_template('page2.html')

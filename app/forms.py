@@ -12,3 +12,4 @@ class SignUpForm(FlaskForm):
 class SearchForm(FlaskForm):
     search_term = StringField('Search Term', validators=[DataRequired()])
     submit = SubmitField('Search')
+

@@ -8,3 +8,6 @@ class SignUP(FlaskForm):
         password = PasswordField()
         confirm_password = PasswordField()
         submit = SubmitField()
+
+
+#class LoginForm(FlaskForm):
