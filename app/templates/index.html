@@ -2,11 +2,20 @@
 
 {% block content %}
 
-<h1>Welcome to the Homepage!</h1>
+    <h1>Welcome to the my Flask app!</h1>
+        {% for post in posts %}
 
 
+<div class="card text_dark text-decoration-none" style="width: 18rem;" href="{{ url_for('single_post_page', post_id=post.id) }}">
+    <img src="{{ post.img_url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.author.username }}</h6>
 
-    
+      <p class="card-text">{{ post.caption }}</p>
+    </div>
+  </div>
+        {% endfor %}
 
 
 {% endblock %}

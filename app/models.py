@@ -24,3 +24,9 @@ class Post(db.Model):
     caption = db.Column(db.String(500))
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __init__(self, title, caption, image_url, user_id):
+        self.title = title
+        self.caption = caption
+        self.img_url = image_url
+        self.user_id = user_id    

@@ -5,17 +5,11 @@
 <h1>This is the Login page</h1>
 
 <form action="/login" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    {{ form.hidden_tag() }}
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-
-    <input type="submit" value="Login">
+    {{ form.username(class='form-control', placeholder='Username') }}
+    {{ form.password(class='form-control', placeholder='Password') }}
+    {{ form.submit(class='btn btn-primary') }}
 </form>
-
-
-
-
 
 {% endblock %}
