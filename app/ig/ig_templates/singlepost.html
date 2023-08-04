@@ -17,7 +17,7 @@
 </div>
 {% if current_user.is_authenticated %}
         {% if current_user.id == post.user_id %}
-            <a href='{{ url_for("update_post_page", post_id=post.id) }}' class="btn btn-primary">Update</a>
+            <a href='{{ url_for("ig.update_post_page", post_id=post.id) }}' class="btn btn-primary">Update</a>
            
 
 

@@ -2,7 +2,25 @@
 
 {% block content %}
 <div class="container">
-    <h1>Welcome to the Homepage!</h1>
-    <h2>Shalom!</h2>
+    <h1>Liked Pokemon</h1>
+    {% if liked_pokemon_list %}
+        <ul>
+            {% for pokemon in liked_pokemon_list %}
+                <li>
+                    <strong>Name:</strong> {{ pokemon.name }},
+                    <strong>ID:</strong> {{ pokemon.id }},
+                    <strong>HP:</strong> {{ pokemon.hp }},
+                    <strong>Attack:</strong> {{ pokemon.attack }},
+                    <strong>Defense:</strong> {{ pokemon.defense }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No liked pokemon yet.</p>
+    {% endif %}
 </div>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
 {% endblock %}
+

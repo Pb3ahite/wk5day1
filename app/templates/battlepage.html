@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Battle Page</h1>
+    <p>Select your Pokemon for the battle:</p>
+    <form method="post" action="{{ url_for('battlepage', opponent_id=opponent.id) }}">
+        <select name="user_pokemon_id">
+            {% for pokemon in user_pokemon_list %}
+                <option value="{{ pokemon.id }}">{{ pokemon.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Battle">
+    </form>
+
+    
+    <h2>Other Users:</h2>
+    <ul>
+        {% for user in other_users %}
+            <li>{{ user.username }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if opponent_pokemon %}
+        <h2>Opponent's Pokemon:</h2>
+        <p>Name: {{ opponent_pokemon.name }}</p>
+        <p>HP: {{ opponent_pokemon.hp }}</p>
+        <p>Attack: {{ opponent_pokemon.attack }}</p>
+        <p>Defense: {{ opponent_pokemon.defense }}</p>
+        <img src="{{ opponent_pokemon.img_url }}" alt="{{ opponent_pokemon.name }}">
+
+        {% if winner == 'user' %}
+            <h2>You won the battle!</h2>
+        {% elif winner == 'opponent' %}
+            <h2>You lost the battle!</h2>
+        {% else %}
+            <h2>It's a tie!</h2>
+        {% endif %}
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/battlepage.css') }}">
+
+{% endblock %}
+

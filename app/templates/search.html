@@ -20,14 +20,16 @@
         </ul>
         <img src="{{pokemon.img_url}}" alt="image">
     </div>
+    <div class="mt-2">
+        <form method="POST" action="{{ url_for('save_pokemon') }}">
+            {{ form.hidden_tag() }}
+            <input type="hidden" name="pokemon_action" value="like">
+            <input type="hidden" name="liked_pokemon" value="{{ pokemon.name }}">
+            <button type="submit" class="btn btn-success">Like</button>
+        </form>
+        
+
+    </div>
     {% endif %}
 </div>
-
-<div class="container">
-    <div class="mt-4">
-        <a href="#" class="btn btn-primary">Home</a>
-        <a href="/search" class="btn btn-primary">Search</a>
-        <div class="dropdown d-inline">
-          
-
 {% endblock %}

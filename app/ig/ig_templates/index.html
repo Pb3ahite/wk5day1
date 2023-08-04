@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Welcome to my Flask app!</h1>
+{% for post in posts %}
+  <div class="card text_dark text-decoration-none mb-3" style="width: 18rem;">
+    <img src="{{ post.img_url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.author.username }}</h6>
+      <p class="card-text">{{ post.caption }}</p>
+    </div>
+    <div class="card-footer text-muted">
+      Posted {{ moment(post.date_created).fromNow() }}
+
+      {% if current_user.id == post.user_id %}
+        <form action="{{ url_for('ig.delete_post', post_id=post.id) }}" method="post" style="display: inline-block;">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      {% else %}
+        {% if current_user in post.likers2 %}
+          <a href="{{ url_for('ig.unlike_post2', post_id=post.id) }}" class="btn btn-danger">Unlike</a>
+        {% else %}
+          <a href="{{ url_for('ig.like_post2', post_id=post.id) }}" class="btn btn-success">Like</a>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+
+
+{% endblock %}

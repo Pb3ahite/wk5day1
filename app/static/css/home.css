@@ -1,0 +1,23 @@
+
+
+
+
+.liked-pokemon-section {
+    background-color: #222; 
+    color: #f3d9d9; 
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.liked-pokemon-section h2 {
+    color: #ff6600; 
+}
+
+.liked-pokemon-list {
+    list-style: none;
+    padding: 0;
+}
+
+.liked-pokemon-list li {
+    margin: 5px 0;
+}
